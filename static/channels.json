@@ -1,0 +1,86 @@
+{
+    "Channels": [
+        {
+            "ChannelID": 1, 
+            "ChannelName": "法语", 
+            "ChannelType": 1, 
+            "ChannelURL": null, 
+            "ElementID": "DhammaTalks", 
+            "Visible": true
+        }, 
+        {
+            "ChannelID": 2, 
+            "ChannelName": "文章", 
+            "ChannelType": 1, 
+            "ChannelURL": null, 
+            "ElementID": "Articles", 
+            "Visible": true
+        }, 
+        {
+            "ChannelID": 5, 
+            "ChannelName": "标签", 
+            "ChannelType": 1, 
+            "ChannelURL": null, 
+            "ElementID": "Tags", 
+            "Visible": true
+        }, 
+        {
+            "ChannelID": 6, 
+            "ChannelName": "书籍", 
+            "ChannelType": 1, 
+            "ChannelURL": null, 
+            "ElementID": "Books", 
+            "Visible": true
+        }, 
+        {
+            "ChannelID": 7, 
+            "ChannelName": "资源", 
+            "ChannelType": 1, 
+            "ChannelURL": null, 
+            "ElementID": "Sources", 
+            "Visible": true
+        }, 
+        {
+            "ChannelID": 8, 
+            "ChannelName": "庄春江工作站", 
+            "ChannelType": 2, 
+            "ChannelURL": "http://agama.buddhason.org", 
+            "ElementID": "zcjgzz", 
+            "Visible": true
+        }, 
+        {
+            "ChannelID": 9, 
+            "ChannelName": "巴利佛典选译", 
+            "ChannelType": 2, 
+            "ChannelURL": "http://www.chilin.edu.hk/edu/report_section.asp?section_id=5", 
+            "ElementID": "xsq", 
+            "Visible": true
+        }, 
+        {
+            "ChannelID": 10, 
+            "ChannelName": "阿含经在线", 
+            "ChannelType": 2, 
+            "ChannelURL": "http://www.ahanjing.top", 
+            "ElementID": "ahjzx", 
+            "Visible": true
+        }, 
+        {
+            "ChannelID": 12, 
+            "ChannelName": "别译杂阿含经", 
+            "ChannelType": 2, 
+            "ChannelURL": "http://buddhistinformatics.chibs.edu.tw/BZA/index_zh.html", 
+            "ElementID": "byzah", 
+            "Visible": true
+        }, 
+        {
+            "ChannelID": 13, 
+            "ChannelName": "律藏", 
+            "ChannelType": 2, 
+            "ChannelURL": "http://jingwen.buddh.cn/mulu/lvzang/yuanhenglvzang(1-2).html", 
+            "ElementID": "lz", 
+            "Visible": true
+        }
+    ], 
+    "Result": true, 
+    "ErrorMsg": ""
+}
