@@ -21,16 +21,17 @@ class DhammaIslandNav extends LitElement {
     }
 
     render() {
-            const { channels } = this;
-            return html `
+        const { channels } = this;
+        return html `
             <script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-            <link href="https://cdn.staticfile.org/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
             <script type="text/javascript" src="https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
-            <ul id="myTabs" class="nav nav-tabs">
+            <link href="https://cdn.staticfile.org/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+            
+            <ul id="myTabs" class="nav nav-tabs"  role="tablist">
                 ${channels.map((item) => {
                     return html`
                             <li class="nav-item">
-                                <a class="nav-link" @click=${this._onTabClick} id="taba" href="#${item.ElementID}" >${item.ChannelName}</a>
+                            <a class="nav-link" id="tab_${item.ChannelID}" data-toggle="tab" href="#${item.ElementID}" role="tab" aria-controls="${item.ElementID}" aria-selected="false">${item.ChannelName} </a>
                             </li>
                         `;
                     })
@@ -39,7 +40,8 @@ class DhammaIslandNav extends LitElement {
             <div class="tab-content">
                     ${channels.map((item) => {
                         return html `
-                            <div class="tab-pane fade" id="${item.ElementID}">
+    
+                            <div class="tab-pane fade"  id="${item.ElementID}" role="tabpanel" aria-labelledby="tab_${item.ChannelID}">
                                 <br />
                                 <p>${item.ChannelName}</p>
                             </div>
@@ -47,16 +49,12 @@ class DhammaIslandNav extends LitElement {
                     })
                 }
             </div>
-
         `;
     }
-    _onTabClick(elementID) {
-        // e.preventDefault();
-        console.log(elementID);
-        var a = this.shadowRoot.getElementById("DhammaTalks");
-        $(a).tab('show');
-        console.log(a);
-    }
+    // _onTabClick(elementID) {        
+    //     var a = this.shadowRoot.getElementById(elementID);        
+    //     $(a).tab('show');
+    // }
 
 }
 
