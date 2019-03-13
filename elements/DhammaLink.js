@@ -2,7 +2,6 @@ import { LitElement, html, css } from 'lit-element';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 
 class DhammaLink extends LitElement {
-    
     static get properties() {
         return {
             LinkType: { type: Number },
