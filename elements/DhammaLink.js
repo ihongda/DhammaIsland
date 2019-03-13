@@ -51,16 +51,14 @@ class DhammaLink extends LitElement {
 
     render() {
       return html`
-          <link href="https://cdn.staticfile.org/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"></link>
-          <div class="card ${this.CardStyle[this.LinkType]}">
-              <div class="card-header">
-                  ${ this.CardTitle[this.LinkType] }
-              </div>
-              <ul class="list-group list-group-flush">
-                  ${this.DhammaLink.map(item => html`
-                      <li class="list-group-item">${item.Description}</li>
-                  `)}
-              </ul>
+          <link href="https://cdn.staticfile.org/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"></link>          
+          <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active">
+                    ${ this.CardTitle[this.LinkType] }
+                </a>                
+                ${this.DhammaLink.map(item => html`                                          
+                      <a href="${item.LinkAddress}" class="list-group-item list-group-item-action">${item.Description}</a>
+                `)}                
           </div>
       `;
   }
