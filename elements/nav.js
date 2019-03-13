@@ -23,7 +23,7 @@ class DhammaIslandNav extends LitElement {
     render() {
         const { channels } = this;
         return html `
-            <script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+            <!-- <script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script> -->
             <script type="text/javascript" src="https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
             <link href="https://cdn.staticfile.org/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
             
@@ -31,7 +31,7 @@ class DhammaIslandNav extends LitElement {
                 ${channels.map((item) => {
                     return html`
                             <li class="nav-item">
-                            <a class="nav-link" id="tab_${item.ChannelID}" data-toggle="tab" href="#${item.ElementID}" role="tab" aria-controls="${item.ElementID}" aria-selected="false">${item.ChannelName} </a>
+                            <a class="nav-link" @click=${this._onTabClick(item.ElementID)} id="tab_${item.ChannelID}" data-toggle="tab" href="#${item.ElementID}" role="tab" aria-controls="${item.ElementID}" aria-selected="false">${item.ChannelName} </a>
                             </li>
                         `;
                     })
@@ -51,10 +51,13 @@ class DhammaIslandNav extends LitElement {
             </div>
         `;
     }
-    // _onTabClick(elementID) {        
-    //     var a = this.shadowRoot.getElementById(elementID);        
-    //     $(a).tab('show');
-    // }
+
+    _onTabClick(elementID) {
+        //e.preventDefault();
+        var a = this.shadowRoot.getElementById(elementID);
+        $(a).tab('show');
+        //console.log(elementID);
+    }
 
 }
 

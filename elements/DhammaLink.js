@@ -8,41 +8,45 @@ class DhammaLink extends LitElement {
             LinkType: { type: Number },
             CardStyle: { type: Array },
             DhammaLink: { type: Array },
-            CardTitle: { type: String}            
+            CardTitle: { type: Array },
+            RequestURL: { type: Array }
         };
     }
 
     constructor(){
         super();
         this.CardStyle = [
+            "",
             "border-primary",
             "border-success",
             "border-info"
-        ]
+        ];
+        this.CardTitle = [
+            "",
+            "经律",
+            "禅师法谈",
+            "综合类网站"
+        ];
+        this.requestURL = [
+            "",
+            "/static/SuttaVinayaLink.json",
+            "/static/BhanteDhammaTalks.json",
+            "/static/DhammaWebsite.json"
+        ];
+
+        this.DhammaLink = [];
     }
 
-    firstUpdated(){
-        let requestURL = "";
-        switch(this.LinkType){
-            case 1:
-                requestURL = "/static/SuttaVinayaLink.json";
-                CardTitle = "经律";
-                break;
-            case 2:
-                requestURL = "/static/BhanteDhammaTalks.json";
-                CardTitle = "禅师法谈";
-                break;
-            case 3:
-                requestURL = "/static/DhammaWebsite.json";
-                CardTitle = "综合类网站";
-                break;                             
-            default:
-                requestURL = "/static/SuttaVinayaLink.json";     
+    firstUpdated(){        
+        if (this.LinkType === 0 || this.LinkType > 3){
+            this.LinkType = 1;
         }
-        fetch(requestURL)
+        console.log(this.requestURL[this.LinkType]);
+        fetch(this.requestURL[this.LinkType])
             .then((r) => r.json())
             .then((r) => {
                 this.DhammaLink = r.DhammaLink;
+                console.log(this.DhammaLink);
             });
     }
 
@@ -51,7 +55,7 @@ class DhammaLink extends LitElement {
           <link href="https://cdn.staticfile.org/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"></link>
           <div class="card ${this.CardStyle[this.LinkType]}">
               <div class="card-header">
-                  ${ this.CardTitle }
+                  ${ this.CardTitle[this.LinkType] }
               </div>
               <ul class="list-group list-group-flush">
                   ${this.DhammaLink.map(item => html`
