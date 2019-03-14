@@ -1,6 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import { linq } from "https://unpkg.com/linq@3.1.1/linq.js";
 
 class DhammaBook extends LitElement {
   static get properties() {
@@ -15,6 +14,7 @@ class DhammaBook extends LitElement {
     super();
     this.BookID = 0;
     this.ShowCount = 3;
+    this.DhammaBook = [];
   }
 
   firstUpdated() {
@@ -30,7 +30,7 @@ class DhammaBook extends LitElement {
    * Use the element current props to return a lit-html template result
    * to render into the element.
    */
-  _render({}) {
+  render() {
     return html`
       <!-- <script type="text/javascript" src="/lib/linq.js"></script> -->
       <link href="https://cdn.staticfile.org/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
