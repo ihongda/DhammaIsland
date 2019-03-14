@@ -45,9 +45,9 @@ class DhammaPhrase extends LitElement {
             <link href="https://cdn.staticfile.org/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
             </link>
             ${this.DhammaPhrase.map(item => html`
-            <div class="alert ${this.alertStyle[randomFrom(0, 6)]}" role="alert">
-                ${unsafeHTML(item.dhamma)}
-            </div>
+                <div class="alert ${this.alertStyle[randomFrom(0, 6)]}" role="alert">
+                    ${unsafeHTML(item.dhamma)}
+                </div>
             `)}
         `;
     }
