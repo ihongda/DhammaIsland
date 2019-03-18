@@ -6,14 +6,19 @@ class DhammaIslandNav extends LitElement {
             channels: { type: Array }
         }
     }
+
+    createRenderRoot() {
+        return this;
+    }
+
     constructor() {
         super();
         this.channels = [];
     }
 
     firstUpdated() {
-        //fetch('http://dhammaisland.com/Models/api.ashx?method=GetChannels')
-        fetch('/static/channels.json')
+        fetch('http://dhammaisland.com/Models/api.ashx?method=GetChannels')
+        //fetch('/static/channels.json')
             .then((r) => r.json())
             .then((r) => {
                 this.channels = r.Channels;
@@ -31,7 +36,7 @@ class DhammaIslandNav extends LitElement {
                 ${channels.map((item) => {
                     return html`
                             <li class="nav-item">
-                            <a class="nav-link" @click=${this._onTabClick(item.ElementID)} id="tab_${item.ChannelID}" data-toggle="tab" href="#${item.ElementID}" role="tab" aria-controls="${item.ElementID}" aria-selected="false">${item.ChannelName} </a>
+                            <a class="nav-link"  id="tab_${item.ChannelID}" data-toggle="tab" href="#${item.ElementID}" role="tab" aria-controls="${item.ElementID}" aria-selected="false">${item.ChannelName} </a>
                             </li>
                         `;
                     })
@@ -52,12 +57,12 @@ class DhammaIslandNav extends LitElement {
         `;
     }
 
-    _onTabClick(elementID) {
-        //e.preventDefault();
-        var a = this.shadowRoot.getElementById(elementID);
-        $(a).tab('show');
-        //console.log(elementID);
-    }
+    // _onTabClick(elementID) {
+    //     e.preventDefault();
+    //     var a = document.getElementById(elementID);
+    //     $(a).tab('show');
+    //     //console.log(elementID);
+    // }
 
 }
 
